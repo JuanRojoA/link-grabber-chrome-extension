@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "version": "1.4",
+  "name": "Link Grabber",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "logo-1.png"
+  },
+  "permissions": [
+    "tabs"
+  ]
+}
