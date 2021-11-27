@@ -5,14 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <title>Chrome Extension</title>
   </head>
   <body>
-    <input type="text" name="textInput" id="input-el" />
+    <input type="text" name="titleInput" id="input-title-el" placeholder="Enter webpage title" />
+    <input type="text" name="linkInput" id="input-link-el" placeholder="Enter webpage URL" />
     <div id="btn-container">
-      <button id="input-btn">Save Input</button>
-      <button id="tab-btn">Save Current Tab</button>
-      <button id="delete-btn">Clear All Links</button>
+      <button id="input-btn" class="main-btns">Save Input</button>
+      <button id="tab-btn" class="main-btns">Save Current Tab</button>
+      <button id="delete-btn" class="main-btns">Clear All Links</button>
     </div>
     <ul id="list-el"></ul>
     <script src="./js/main.js"></script>
