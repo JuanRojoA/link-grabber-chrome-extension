@@ -1,7 +1,6 @@
 const inputBtnElement = document.getElementById("input-btn");
 const tabBtnElement = document.getElementById("tab-btn");
 const deleteBtnElement = document.getElementById("delete-btn");
-const deleteSpcBtnElement = document.getElementsByClassName("delete-spc-btn");
 const inputTitleEl = document.getElementById("input-title-el");
 const inputLinkEl = document.getElementById("input-link-el");
 const listEl = document.getElementById("list-el");
@@ -13,9 +12,21 @@ if (linksFromLocalStorage) {
   renderLinks(copiedLinks);
 }
 
+listEl.addEventListener("click", function (e) {
+  const item = e.target;
+  if (item.classList[0] === "delete-spc-btn") {
+    let itemID = item.id[0];
+    copiedLinks.splice(itemID, 1);
+    localStorage.setItem("copiedLinks", JSON.stringify(copiedLinks));
+    const itemParent = item.parentElement;
+    itemParent.remove();
+  }
+  renderLinks(copiedLinks);
+});
+
 inputBtnElement.addEventListener("click", function () {
   if (inputLinkEl.value != "" && inputTitleEl.value != "") {
-    copiedLinks.push({title: inputTitleEl.value, link: inputLinkEl.value});
+    copiedLinks.push({ title: inputTitleEl.value, link: inputLinkEl.value });
   }
   localStorage.setItem("copiedLinks", JSON.stringify(copiedLinks));
   inputLinkEl.value = "";
@@ -26,7 +37,7 @@ inputBtnElement.addEventListener("click", function () {
 
 tabBtnElement.addEventListener("click", function () {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    copiedLinks.push({title: tabs[0].title, link: tabs[0].url});
+    copiedLinks.push({ title: tabs[0].title, link: tabs[0].url });
     localStorage.setItem("copiedLinks", JSON.stringify(copiedLinks));
     renderLinks(copiedLinks);
   });
@@ -50,9 +61,4 @@ function renderLinks(array) {
       </li>`;
   }
   listEl.innerHTML = listItems;
-  for (var i = 0; i < deleteSpcBtnElement.length; i++) {
-    deleteSpcBtnElement[i].addEventListener("click", function () {
-      copiedLinks.push("Deleted");
-    });
-  }
 }

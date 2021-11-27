@@ -40,7 +40,7 @@ input:hover {
   outline: none;
 }
 
-#btn-container{
+#btn-container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
@@ -53,22 +53,22 @@ input:hover {
   font-size: 1.3rem;
   font-weight: bolder;
   background-color: #4e8d2a;
-  border:none;
+  border: none;
   border-radius: 0.5rem;
   color: #fff;
   outline: none;
   transition: 0.2s;
 }
 
-.main-btns:nth-of-type(1){
+.main-btns:nth-of-type(1) {
   grid-column: 1/-1;
 }
 
-.main-btns:nth-of-type(2){
+.main-btns:nth-of-type(2) {
   grid-column: 1/7;
 }
 
-.main-btns:nth-of-type(3){
+.main-btns:nth-of-type(3) {
   grid-column: 7/-1;
 }
 
@@ -77,22 +77,22 @@ input:hover {
 }
 
 .main-btns:active {
-  transform: scale(0.95); 
+  transform: scale(0.95);
 }
 
-ul{
+ul {
   margin-top: 2rem;
   padding-left: 0;
   list-style: none;
 }
 
-li{
+li {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   margin: 0.5rem 0;
 }
 
-a{
+a {
   display: block;
   grid-column: 1/11;
   height: 100%;
@@ -109,12 +109,12 @@ a{
   white-space: nowrap;
 }
 
-a:hover{
+a:hover {
   text-decoration: underline;
   background-color: #050505;
 }
 
-.delete-spc-btn{
+.delete-spc-btn {
   grid-column: 11/-1;
   border-bottom-right-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
@@ -126,6 +126,10 @@ a:hover{
   transition: 0.2s;
 }
 
-.delete-spc-btn:hover{
+.delete-spc-btn:hover {
   background-color: rgb(245, 33, 33);
+}
+
+.delete-spc-btn span {
+  pointer-events: none;
 }
