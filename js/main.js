@@ -12,6 +12,18 @@ if (linksFromLocalStorage) {
   renderLinks(copiedLinks);
 }
 
+inputTitleEl.addEventListener("keyup", function (event) {
+  if (event.key === "Enter") {
+    inputBtnElement.click();
+  }
+});
+
+inputLinkEl.addEventListener("keyup", function (event) {
+  if (event.key === "Enter") {
+    inputBtnElement.click();
+  }
+});
+
 listEl.addEventListener("click", function (e) {
   const item = e.target;
   if (item.classList[0] === "delete-spc-btn") {
@@ -24,15 +36,18 @@ listEl.addEventListener("click", function (e) {
   renderLinks(copiedLinks);
 });
 
-inputBtnElement.addEventListener("click", function () {
+inputBtnElement.addEventListener("click", function (e) {
+  if (e.keyCode === 13) {
+    inputBtnElement.click();
+  }
   if (inputLinkEl.value != "" && inputTitleEl.value != "") {
     copiedLinks.push({ title: inputTitleEl.value, link: inputLinkEl.value });
+    localStorage.setItem("copiedLinks", JSON.stringify(copiedLinks));
+    inputLinkEl.value = "";
+    inputTitleEl.value = "";
+    inputTitleEl.focus();
+    renderLinks(copiedLinks);
   }
-  localStorage.setItem("copiedLinks", JSON.stringify(copiedLinks));
-  inputLinkEl.value = "";
-  inputTitleEl.value = "";
-  inputTitleEl.focus();
-  renderLinks(copiedLinks);
 });
 
 tabBtnElement.addEventListener("click", function () {
