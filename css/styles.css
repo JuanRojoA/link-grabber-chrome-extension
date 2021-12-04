@@ -12,8 +12,8 @@ html {
 body {
   font-size: 16px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  min-width: 400px;
-  max-width: 400px;
+  min-width: 450px;
+  max-width: 450px;
   min-height: 600px;
   max-height: 600px;
   overflow: scroll;
@@ -118,8 +118,30 @@ a:hover {
   background-color: #050505;
 }
 
+.edit-link-btn {
+  grid-column: 11/12;
+  background-color: rgb(66, 159, 235);
+  color: #ffffff;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+}
+
+.edit-link-btn:hover {
+  background-color: rgb(33, 132, 245);
+}
+
+.edit-link-btn:active {
+  transform: scale(0.9);
+}
+
+.edit-link-btn span {
+  pointer-events: none;
+}
+
 .delete-link-btn {
-  grid-column: 11/-1;
+  grid-column: 12/-1;
   border-bottom-right-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   background-color: rgb(235, 66, 66);
@@ -132,6 +154,10 @@ a:hover {
 
 .delete-link-btn:hover {
   background-color: rgb(245, 33, 33);
+}
+
+.delete-link-btn:active {
+  transform: scale(0.9);
 }
 
 .delete-link-btn span {
@@ -153,7 +179,7 @@ a:hover {
   box-shadow: 0.2rem 0.2rem 0rem 0rem rgba(0, 0, 0, 0.7);
   border-radius: 0.5rem;
   height: 200px;
-  width: 350px;
+  width: 400px;
 }
 
 .modal-conntent-container {
@@ -203,6 +229,10 @@ a:hover {
 
 .modal-conntent-container button:active {
   transform: scale(0.9);
+}
+
+.modal-inputs{
+  padding: 1rem;
 }
 
 .display-none {
