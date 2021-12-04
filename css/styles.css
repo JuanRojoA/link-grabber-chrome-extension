@@ -12,12 +12,16 @@ html {
 body {
   font-size: 16px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  padding: 1rem;
   min-width: 400px;
   max-width: 400px;
   min-height: 600px;
   max-height: 600px;
   overflow: scroll;
+  position: relative;
+}
+
+.container {
+  padding: 1rem;
 }
 
 input {
@@ -114,7 +118,7 @@ a:hover {
   background-color: #050505;
 }
 
-.delete-spc-btn {
+.delete-link-btn {
   grid-column: 11/-1;
   border-bottom-right-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
@@ -126,10 +130,107 @@ a:hover {
   transition: 0.2s;
 }
 
-.delete-spc-btn:hover {
+.delete-link-btn:hover {
   background-color: rgb(245, 33, 33);
 }
 
-.delete-spc-btn span {
+.delete-link-btn span {
   pointer-events: none;
+}
+
+.modal {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container {
+  background-color: rgb(16, 17, 16);
+  border: 2px solid #387a12;
+  box-shadow: 0.2rem 0.2rem 0rem 0rem rgba(0, 0, 0, 0.7);
+  border-radius: 0.5rem;
+  height: 200px;
+  width: 350px;
+}
+
+.modal-conntent-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-icon i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
+  width: 6rem;
+  font-size: 4rem;
+  background-color: #387a12;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+}
+
+.modal-conntent-container p {
+  color: white;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
+}
+
+.modal-conntent-container button {
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 600;
+  background-color: #4e8d2a;
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  outline: none;
+  transition: 0.2s;
+}
+
+.modal-conntent-container button:hover {
+  background-color: #387a12;
+}
+
+.modal-conntent-container button:active {
+  transform: scale(0.9);
+}
+
+.display-none {
+  display: none;
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-1000px);
+  }
+}
+
+.slide-out {
+  animation: slide-out 600ms ease;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(-1000px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.slide-in {
+  animation: slide-in 600ms ease;
 }
